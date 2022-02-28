@@ -1,3 +1,4 @@
+com\cnpm\config\TilesConfig.class
 com\cnpm\repository\implement\AccountRepositoryImplement.class
 com\cnpm\services\AccountService.class
 com\cnpm\config\DispatcherServletInitializer.class
