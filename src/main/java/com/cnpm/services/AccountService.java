@@ -7,11 +7,13 @@ package com.cnpm.services;
 
 import com.cnpm.pojos.Account;
 import java.util.List;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /**
  *
  * @author ADMIN
  */
-public interface AccountService {
-    List<Account> getAccount();
+public interface AccountService extends UserDetailsService{
+    boolean addAccount(Account acc);
+    List<Account> getAccount(String username);
 }

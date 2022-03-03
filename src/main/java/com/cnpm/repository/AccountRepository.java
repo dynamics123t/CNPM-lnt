@@ -13,6 +13,6 @@ import java.util.List;
  * @author ADMIN
  */
 public interface AccountRepository {
-    
-    List<Account> getAccount();
+    boolean addAccount(Account acc);
+    List<Account> getAccount(String username);
 }
