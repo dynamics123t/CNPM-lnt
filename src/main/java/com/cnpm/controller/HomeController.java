@@ -20,10 +20,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     @Autowired
-    private AccountService account;
+    private AccountService userDetailsService;
+
     @RequestMapping("/")
     public String index(Model model){
-       // model.addAttribute("account", this.account.getAccount());
+        model.addAttribute("acc", new Account());
         return "index";
     }
     

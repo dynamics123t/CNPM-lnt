@@ -54,7 +54,5 @@ public class NhomSanPham implements Serializable{
     public void setTenNhomSP(String tenNhomSP) {
         this.tenNhomSP = tenNhomSP;
     }
-    
-    
-            
+          
 }

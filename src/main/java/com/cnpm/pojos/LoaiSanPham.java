@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -24,25 +26,26 @@ public class LoaiSanPham implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IDLoaiSP")
     private int idLoaiSP;
-    @Column(name="IDNhomSP")
-    private int idNhomSP;
+    @JoinColumn(name="IDNhomSP")
+    @ManyToOne
+    private NhomSanPham NSP;
     @Column(name="TenLoaiSP")
     private String tenLoaiSP;
-
-    public LoaiSanPham(int idLoaiSP, int idNhomSP, String tenLoaiSP) {
-        this.idLoaiSP = idLoaiSP;
-        this.idNhomSP = idNhomSP;
-        this.tenLoaiSP = tenLoaiSP;
-    }
 
     public LoaiSanPham() {
     }
 
-    public LoaiSanPham(int idNhomSP, String tenLoaiSP) {
-        this.idNhomSP = idNhomSP;
+    public LoaiSanPham(NhomSanPham NSP, String tenLoaiSP) {
+        this.NSP = NSP;
         this.tenLoaiSP = tenLoaiSP;
     }
 
+    public LoaiSanPham(int idLoaiSP, NhomSanPham NSP, String tenLoaiSP) {
+        this.idLoaiSP = idLoaiSP;
+        this.NSP = NSP;
+        this.tenLoaiSP = tenLoaiSP;
+    }
+    
     public int getIdLoaiSP() {
         return idLoaiSP;
     }
@@ -51,12 +54,12 @@ public class LoaiSanPham implements Serializable{
         this.idLoaiSP = idLoaiSP;
     }
 
-    public int getIdNhomSP() {
-        return idNhomSP;
+    public NhomSanPham getNSP() {
+        return NSP;
     }
 
-    public void setIdNhomSP(int idNhomSP) {
-        this.idNhomSP = idNhomSP;
+    public void setNSP(NhomSanPham NSP) {
+        this.NSP = NSP;
     }
 
     public String getTenLoaiSP() {
@@ -66,6 +69,6 @@ public class LoaiSanPham implements Serializable{
     public void setTenLoaiSP(String tenLoaiSP) {
         this.tenLoaiSP = tenLoaiSP;
     }
-    
+
     
 }

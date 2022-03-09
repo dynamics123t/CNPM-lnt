@@ -31,6 +31,8 @@ public class Account implements Serializable{
     private String pass;
     private String email;
     private String userRole;
+    @Deprecated
+    private String repass;
 
     public String getUserRole() {
         return userRole;
