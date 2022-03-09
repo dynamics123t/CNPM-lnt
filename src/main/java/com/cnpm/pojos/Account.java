@@ -5,6 +5,7 @@
  */
 package com.cnpm.pojos;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +19,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "account")
-public class Account {
+public class Account implements Serializable{
+    public static final String ADMIM="ROLE_ADMIN";
+    public static final String USER = "ROLE_USER";
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IdAccount")
@@ -27,6 +30,26 @@ public class Account {
     private String user;
     private String pass;
     private String email;
+    private String userRole;
+    @Deprecated
+    private String repass;
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public Account(int id, String name, String user, String pass, String email, String userRole) {
+        this.id = id;
+        this.name = name;
+        this.user = user;
+        this.pass = pass;
+        this.email = email;
+        this.userRole = userRole;
+    }
 
     public Account(int id, String name, String user, String pass, String email) {
         this.id = id;

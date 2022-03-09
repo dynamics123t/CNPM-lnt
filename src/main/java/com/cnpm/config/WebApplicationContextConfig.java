@@ -41,11 +41,17 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
 
         return resource;
     }
-    
+    @Bean
+    public MessageSource messageSource(){
+        ResourceBundleMessageSource  source= new ResourceBundleMessageSource();
+        source.setBasename("messager");
+        return source;
+    }
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry){
         registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
         registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
+        registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
-    
+
 }

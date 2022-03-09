@@ -5,6 +5,7 @@
  */
 package com.cnpm.controller;
 
+import com.cnpm.pojos.Account;
 import com.cnpm.services.AccountService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
     @Autowired
-    private AccountService account;
-    @RequestMapping
+    private AccountService userDetailsService;
+
+    @RequestMapping("/")
     public String index(Model model){
-        model.addAttribute("account", this.account.getAccount());
+        model.addAttribute("acc", new Account());
         return "index";
     }
+    
 }
