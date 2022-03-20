@@ -9,14 +9,10 @@
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 
-<c:url var="action" value="/register"/>
+<c:url var="action" value="/verification"/>
 
 <form:form modelAttribute="acc" method="post" action="${action}">
     <table>
-        <tr>
-            <th>name </th>
-            <td> <form:input path="name"/> </td>
-        </tr>
         <tr>
             <th>user name </th>  
             <td> <form:input path="user"/> </td>
@@ -24,6 +20,10 @@
         <tr>
             <th>password </th>
             <td> <form:password path="pass"/> </td>
+        </tr>
+        <tr>
+            <th>password </th>
+            <td> <form:password path="repass"/> </td>
         </tr>
         <tr>
             <th>email </th>

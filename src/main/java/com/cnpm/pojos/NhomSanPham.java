@@ -6,11 +6,13 @@
 package com.cnpm.pojos;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -26,6 +28,16 @@ public class NhomSanPham implements Serializable{
     private int idNhomSP;
     @Column(name="TenNhomSP")
     private String tenNhomSP;
+    @OneToMany(mappedBy = "nSP")
+    private List<LoaiSanPham> loaiSanPham;
+
+    public List<LoaiSanPham> getLoaiSanPham() {
+        return loaiSanPham;
+    }
+
+    public void setLoaiSanPham(List<LoaiSanPham> loaiSanPham) {
+        this.loaiSanPham = loaiSanPham;
+    }
 
     public NhomSanPham(String tenNhomSP) {
         this.tenNhomSP = tenNhomSP;

@@ -6,6 +6,7 @@
 package com.cnpm.pojos;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -28,21 +30,24 @@ public class LoaiSanPham implements Serializable{
     private int idLoaiSP;
     @JoinColumn(name="IDNhomSP")
     @ManyToOne
-    private NhomSanPham NSP;
+    private NhomSanPham nSP;
     @Column(name="TenLoaiSP")
     private String tenLoaiSP;
+    
+    @OneToMany(mappedBy = "loaiSP")
+    private List<MatHang> listMatHang;
 
     public LoaiSanPham() {
     }
 
     public LoaiSanPham(NhomSanPham NSP, String tenLoaiSP) {
-        this.NSP = NSP;
+        this.nSP = NSP;
         this.tenLoaiSP = tenLoaiSP;
     }
 
     public LoaiSanPham(int idLoaiSP, NhomSanPham NSP, String tenLoaiSP) {
         this.idLoaiSP = idLoaiSP;
-        this.NSP = NSP;
+        this.nSP = NSP;
         this.tenLoaiSP = tenLoaiSP;
     }
     
@@ -55,11 +60,11 @@ public class LoaiSanPham implements Serializable{
     }
 
     public NhomSanPham getNSP() {
-        return NSP;
+        return nSP;
     }
 
     public void setNSP(NhomSanPham NSP) {
-        this.NSP = NSP;
+        this.nSP = NSP;
     }
 
     public String getTenLoaiSP() {
@@ -68,6 +73,22 @@ public class LoaiSanPham implements Serializable{
 
     public void setTenLoaiSP(String tenLoaiSP) {
         this.tenLoaiSP = tenLoaiSP;
+    }
+
+    public NhomSanPham getnSP() {
+        return nSP;
+    }
+
+    public void setnSP(NhomSanPham nSP) {
+        this.nSP = nSP;
+    }
+
+    public List<MatHang> getListMatHang() {
+        return listMatHang;
+    }
+
+    public void setListMatHang(List<MatHang> listMatHang) {
+        this.listMatHang = listMatHang;
     }
 
     

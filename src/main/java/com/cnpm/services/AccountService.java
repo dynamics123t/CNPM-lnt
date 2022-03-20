@@ -16,4 +16,5 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 public interface AccountService extends UserDetailsService{
     boolean addAccount(Account acc);
     List<Account> getAccount(String username);
+    boolean checkUsername(String username);
 }

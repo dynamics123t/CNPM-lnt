@@ -54,7 +54,16 @@ public class AccountServiceImplement implements AccountService{
         Account acc = accs.get(0);
         Set<GrantedAuthority> auth = new HashSet<>();
         auth.add(new SimpleGrantedAuthority(acc.getUserRole()));
-        return new User(acc.getName(), acc.getPass(), auth);
+        return new User(acc.getUser(), acc.getPass(), auth);
+    }
+
+    @Override
+    public boolean checkUsername(String username) {
+        List<Account> accs= this.getAccount(username);
+        if(accs.isEmpty()){
+            return true;
+        }
+        return false;
     }
     
 }

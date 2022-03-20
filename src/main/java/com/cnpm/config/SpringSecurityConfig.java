@@ -5,6 +5,8 @@
  */
 package com.cnpm.config;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -39,6 +41,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
         
     }
+    @Bean
+    public Cloudinary cloudinary(){
+        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+                "cloud_name", "danang-university-architecture",
+                "api_key","695667266457853",
+                "api_secret","F0-nUWpz1-0wlfBvu5Ye2_I8y14",
+                "secure",true
+        ));
+        return cloudinary;
+    }
      //phan quyen
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -47,7 +59,12 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
                 .passwordParameter("password");
         
         http.formLogin().defaultSuccessUrl("/").failureUrl("/login?error");
-        http.logout().logoutSuccessUrl("/login");
+        http.logout().logoutSuccessUrl("/");
+        
+        http.exceptionHandling().accessDeniedPage("/login?accessDenied");
+        http.authorizeRequests().antMatchers("/").permitAll()
+                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+                .antMatchers("/**/pay").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
         http.csrf().disable();
        
     }
