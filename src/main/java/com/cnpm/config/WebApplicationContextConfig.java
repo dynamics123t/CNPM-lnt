@@ -5,12 +5,17 @@
  */
 package com.cnpm.config;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -25,7 +30,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc //hien thu 1 so phuong thuc
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.cnpm.controller, com.cnpm.services, com.cnpm.repository"})
+@ComponentScan(basePackages = {"com.cnpm.controller, com.cnpm.services, com.cnpm.repository, com.cnpm.validator"})
 public class WebApplicationContextConfig implements WebMvcConfigurer{
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
@@ -42,6 +47,25 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         return resource;
     }
     @Bean
+    public CommonsMultipartResolver multipartResolver(){
+        CommonsMultipartResolver m= new CommonsMultipartResolver();
+        m.setDefaultEncoding("UTF-8");
+        return m;
+    }
+    
+    
+    @Override
+    public Validator getValidator() {
+        return validator();
+    }
+    @Bean
+    public LocalValidatorFactoryBean validator(){
+        LocalValidatorFactoryBean v = new LocalValidatorFactoryBean();
+        v.setValidationMessageSource(messageSource());
+        return v;
+    }
+    
+    @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource  source= new ResourceBundleMessageSource();
         source.setBasename("messager");
@@ -53,5 +77,5 @@ public class WebApplicationContextConfig implements WebMvcConfigurer{
         registry.addResourceHandler("/images/**").addResourceLocations("/resources/images/");
         registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
     }
-
+    
 }

@@ -11,7 +11,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -38,6 +42,21 @@ public class MatHang implements Serializable {
     private int soLuong;
     @Column(name="ChiTiet")
     private String chiTiet;
+    @ManyToOne
+    @JoinColumn(name="LoaiSP")
+    private LoaiSanPham loaiSP;
+    @Column(name="IdBanHang")
+    private int idBanHang;
+    @Transient
+    private MultipartFile file;
+
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
 
     public int getIdMatHang() {
         return IdMatHang;
@@ -103,11 +122,11 @@ public class MatHang implements Serializable {
         this.chiTiet = chiTiet;
     }
 
-    public int getLoaiSP() {
+    public LoaiSanPham getLoaiSP() {
         return loaiSP;
     }
 
-    public void setLoaiSP(int loaiSP) {
+    public void setLoaiSP(LoaiSanPham loaiSP) {
         this.loaiSP = loaiSP;
     }
 
@@ -122,7 +141,7 @@ public class MatHang implements Serializable {
     public MatHang() {
     }
 
-    public MatHang(String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, int loaiSP, int idBanHang) {
+    public MatHang(String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
         this.tenMH = tenMH;
         this.hang = hang;
         this.hinhAnh = hinhAnh;
@@ -133,12 +152,9 @@ public class MatHang implements Serializable {
         this.loaiSP = loaiSP;
         this.idBanHang = idBanHang;
     }
-    @Column(name="LoaiSP")
-    private int loaiSP;
-    @Column(name="IdBanHang")
-    private int idBanHang;
+    
 
-    public MatHang(int IdMatHang, String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, int loaiSP, int idBanHang) {
+    public MatHang(int IdMatHang, String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
         this.IdMatHang = IdMatHang;
         this.tenMH = tenMH;
         this.hang = hang;

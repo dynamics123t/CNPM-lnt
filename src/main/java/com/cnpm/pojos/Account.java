@@ -5,6 +5,7 @@
  */
 package com.cnpm.pojos;
 
+import com.cnpm.validator.UsernameAccount;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -26,14 +30,28 @@ public class Account implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IdAccount")
     private int id;
-    private String name;
     private String user;
     private String pass;
+    @Email(message = "vui long nhap email")
     private String email;
     private String userRole;
-    @Deprecated
+    @Transient
     private String repass;
 
+    public void setAccount(AccountTmp tmp){
+        this.user=tmp.getUser();
+        this.pass=tmp.getPass();
+        this.email=tmp.getEmail();
+    }
+
+    public String getRepass() {
+        return repass;
+    }
+
+    public void setRepass(String repass) {
+        this.repass = repass;
+    }
+    
     public String getUserRole() {
         return userRole;
     }
@@ -42,25 +60,33 @@ public class Account implements Serializable{
         this.userRole = userRole;
     }
 
-    public Account(int id, String name, String user, String pass, String email, String userRole) {
+    public Account(int id, String user, String pass, String email, String userRole) {
         this.id = id;
-        this.name = name;
+
         this.user = user;
         this.pass = pass;
         this.email = email;
         this.userRole = userRole;
     }
 
-    public Account(int id, String name, String user, String pass, String email) {
+    public Account(int id,  String user, String pass, String email) {
         this.id = id;
-        this.name = name;
+
         this.user = user;
         this.pass = pass;
         this.email = email;
     }
 
-    public Account(String name, String user, String pass, String email) {
-        this.name = name;
+    public Account(String user, String pass, String email, String userRole) {
+        this.user = user;
+        this.pass = pass;
+        this.email = email;
+        this.userRole = userRole;
+
+    }
+    
+    public Account(String user, String pass, String email) {
+
         this.user = user;
         this.pass = pass;
         this.email = email;
@@ -77,13 +103,7 @@ public class Account implements Serializable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getUser() {
         return user;
