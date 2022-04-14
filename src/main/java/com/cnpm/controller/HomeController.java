@@ -27,5 +27,19 @@ public class HomeController {
         model.addAttribute("acc", new Account());
         return "index";
     }
-    
+    @RequestMapping("/giohang")
+    public String giohang(Model model){
+        model.addAttribute("acc", new Account());
+        return "giohang";
+    }
+    @RequestMapping("/lienhe")
+    public String lienhe(Model model){
+        model.addAttribute("acc", new Account());
+        return "lienhe";
+    }
+    @RequestMapping("/chitiet")
+    public String chitiet(Model model){
+        model.addAttribute("acc", new Account());
+        return "chitiet";
+    }
 }

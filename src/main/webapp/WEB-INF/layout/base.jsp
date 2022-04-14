@@ -15,8 +15,10 @@
         <link rel="stylesheet" href="<c:url value="/css/base.css"/>" type="text/css"/>
         <link rel="stylesheet" href="<c:url value="/css/main.css"/>"/>
         <link rel="stylesheet" href="<c:url value="/css/all.min.css"/>"/>
+        <link rel="stylesheet" href="<c:url value="/css/slider.css"/>"/>
+
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
@@ -25,15 +27,18 @@
     </head>
     <body>
         <div class="app">
-            
+
             <tiles:insertAttribute name="header"/>
-            
+
             <tiles:insertAttribute name="content"/>
 
-            
+
             <tiles:insertAttribute name="footer"/>
         </div>
-            <script src="<c:url value="/js/login.js"/>"></script>
-            <script src="<c:url value="/js/signup.js"/>"></script>
+        <script src="<c:url value="/js/login.js"/>"></script>
+        <script src="<c:url value="/js/signup.js"/>"></script>
+        <script src="<c:url value="/js/slider.js"/>"></script>
+
+
     </body>
 </html>
