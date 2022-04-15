@@ -6,6 +6,7 @@
 package com.cnpm.repository;
 
 import com.cnpm.pojos.NhomSanPham;
+
 import java.util.List;
 
 /**
@@ -16,4 +17,6 @@ public interface NhomSanPhamRepository {
     boolean add(NhomSanPham NSP);
     List<NhomSanPham> getNSP();
     boolean delete(int id);
+
+    NhomSanPham getNhomSanPham(int id);
 }

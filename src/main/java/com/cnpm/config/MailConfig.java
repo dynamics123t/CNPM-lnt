@@ -33,6 +33,7 @@ public class MailConfig {
         mailSender.setPassword(this.env.getProperty("myMail.Pass"));
         
         Properties props = mailSender.getJavaMailProperties();
+        props.setProperty("mail.mime.charset", "utf-8");
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");

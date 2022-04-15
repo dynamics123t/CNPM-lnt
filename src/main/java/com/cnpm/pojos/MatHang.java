@@ -5,17 +5,11 @@
  */
 package com.cnpm.pojos;
 
-import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -27,7 +21,7 @@ public class MatHang implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IDMatHang")
-    private int IdMatHang;
+    private int idMatHang;
     @Column(name="TenMH")
     private String tenMH;
     @Column(name="Hang")
@@ -38,17 +32,45 @@ public class MatHang implements Serializable {
     private int gia;
     @Column(name="GiaKhuyenMai")
     private int giaKhuyenMai;
-    @Column(name="SoLuong")
+    @Column(name = "SoLuong")
     private int soLuong;
-    @Column(name="ChiTiet")
+    @Column(name = "ChiTiet")
     private String chiTiet;
     @ManyToOne
-    @JoinColumn(name="LoaiSP")
+    @JoinColumn(name = "LoaiSP")
     private LoaiSanPham loaiSP;
-    @Column(name="IdBanHang")
-    private int idBanHang;
+
     @Transient
     private MultipartFile file;
+    @Transient
+    private int idLoaiSanPham;
+    @OneToMany(mappedBy = "matHang")
+    private List<Images> listImg;
+
+    public MatHang(String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
+        this.tenMH = tenMH;
+        this.hang = hang;
+        this.hinhAnh = hinhAnh;
+        this.gia = gia;
+        this.giaKhuyenMai = giaKhuyenMai;
+        this.soLuong = soLuong;
+        this.chiTiet = chiTiet;
+        this.loaiSP = loaiSP;
+
+    }
+
+    public MatHang(int IdMatHang, String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
+        this.idMatHang = IdMatHang;
+        this.tenMH = tenMH;
+        this.hang = hang;
+        this.hinhAnh = hinhAnh;
+        this.gia = gia;
+        this.giaKhuyenMai = giaKhuyenMai;
+        this.soLuong = soLuong;
+        this.chiTiet = chiTiet;
+        this.loaiSP = loaiSP;
+
+    }
 
     public MultipartFile getFile() {
         return file;
@@ -59,11 +81,11 @@ public class MatHang implements Serializable {
     }
 
     public int getIdMatHang() {
-        return IdMatHang;
+        return idMatHang;
     }
 
     public void setIdMatHang(int IdMatHang) {
-        this.IdMatHang = IdMatHang;
+        this.idMatHang = IdMatHang;
     }
 
     public String getTenMH() {
@@ -130,41 +152,16 @@ public class MatHang implements Serializable {
         this.loaiSP = loaiSP;
     }
 
-    public int getIdBanHang() {
-        return idBanHang;
-    }
-
-    public void setIdBanHang(int idBanHang) {
-        this.idBanHang = idBanHang;
-    }
 
     public MatHang() {
     }
 
-    public MatHang(String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
-        this.tenMH = tenMH;
-        this.hang = hang;
-        this.hinhAnh = hinhAnh;
-        this.gia = gia;
-        this.giaKhuyenMai = giaKhuyenMai;
-        this.soLuong = soLuong;
-        this.chiTiet = chiTiet;
-        this.loaiSP = loaiSP;
-        this.idBanHang = idBanHang;
+    public int getIdLoaiSanPham() {
+        return idLoaiSanPham;
     }
     
-
-    public MatHang(int IdMatHang, String tenMH, String hang, String hinhAnh, int gia, int giaKhuyenMai, int soLuong, String chiTiet, LoaiSanPham loaiSP, int idBanHang) {
-        this.IdMatHang = IdMatHang;
-        this.tenMH = tenMH;
-        this.hang = hang;
-        this.hinhAnh = hinhAnh;
-        this.gia = gia;
-        this.giaKhuyenMai = giaKhuyenMai;
-        this.soLuong = soLuong;
-        this.chiTiet = chiTiet;
-        this.loaiSP = loaiSP;
-        this.idBanHang = idBanHang;
+    public void setIdLoaiSanPham(int idLoaiSanPham) {
+        this.idLoaiSanPham = idLoaiSanPham;
     }
     
 }

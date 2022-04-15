@@ -14,5 +14,6 @@ import java.util.List;
  */
 public interface AccountRepository {
     boolean addAccount(Account acc);
-    List<Account> getAccount(String username);   
+    List<Account> getAccount(String username);
+
 }

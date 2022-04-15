@@ -7,6 +7,7 @@ package com.cnpm.config;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.cnpm.javaUtils.EncodingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,6 +18,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
@@ -54,17 +56,20 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter{
      //phan quyen
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(new EncodingFilter(), ChannelProcessingFilter.class);
+        http.authorizeRequests().and();
         http.formLogin().loginPage("/login")
                 .usernameParameter("username")
                 .passwordParameter("password");
-        
+
         http.formLogin().defaultSuccessUrl("/").failureUrl("/login?error");
         http.logout().logoutSuccessUrl("/");
-        
+
         http.exceptionHandling().accessDeniedPage("/login?accessDenied");
         http.authorizeRequests().antMatchers("/").permitAll()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .antMatchers("/**/pay").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
+                .antMatchers("/**/pay").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')")
+                .antMatchers("/cart").access("hasAnyRole('ROLE_ADMIN', 'ROLE_USER')");
         http.csrf().disable();
        
     }

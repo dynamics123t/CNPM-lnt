@@ -8,13 +8,16 @@ package com.cnpm.services.implement;
 import com.cnpm.pojos.LoaiSanPham;
 import com.cnpm.repository.LoaiSanPhamReponsitory;
 import com.cnpm.services.LoaiSanPhamService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
+@Service
 public class LoaiSanPhamserviceImpl implements LoaiSanPhamService{
     @Autowired
     private LoaiSanPhamReponsitory loaiSanPhamReponsitory;
@@ -32,5 +35,10 @@ public class LoaiSanPhamserviceImpl implements LoaiSanPhamService{
     public boolean delete(int id) {
         return this.loaiSanPhamReponsitory.delete(id);
     }
-    
+
+    @Override
+    public LoaiSanPham getOne(int id) {
+        return this.loaiSanPhamReponsitory.getOne(id);
+    }
+
 }

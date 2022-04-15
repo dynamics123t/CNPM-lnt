@@ -5,12 +5,7 @@
  */
 package com.cnpm.pojos;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -23,10 +18,12 @@ public class HoaDon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IDHoaDon")
     private int idHoaDon;
-    @Column(name="IDKhachHang")
-    private int idKhachHang;
-    @Column(name="IDMatHang")
-    private int idMatHang;
+    @JoinColumn (name="IDKhachHang")
+    @ManyToOne
+    private Account idKhachHang;
+    @JoinColumn(name="IDMatHang")
+    @ManyToOne
+    private MatHang idMatHang;
     @Column(name="TenKhachHang")
     private String tenKhachHang;
     @Column(name="SoLuong")
@@ -48,20 +45,20 @@ public class HoaDon {
         this.idHoaDon = idHoaDon;
     }
 
-    public int getIdKhachHang() {
-        return idKhachHang;
-    }
-
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
-    }
-
-    public int getIdMatHang() {
+    public MatHang getIdMatHang() {
         return idMatHang;
     }
 
-    public void setIdMatHang(int idMatHang) {
+    public void setIdMatHang(MatHang idMatHang) {
         this.idMatHang = idMatHang;
+    }
+
+    public Account getIdKhachHang() {
+        return idKhachHang;
+    }
+
+    public void setIdKhachHang(Account idKhachHang) {
+        this.idKhachHang = idKhachHang;
     }
 
     public String getTenKhachHang() {
@@ -115,7 +112,7 @@ public class HoaDon {
     public HoaDon() {
     }
 
-    public HoaDon(int idKhachHang, int idMatHang, String tenKhachHang, int soLuong, String sdt, String diaChiGiao, int tongTien, int tinhTrang) {
+    public HoaDon(Account idKhachHang, MatHang idMatHang, String tenKhachHang, int soLuong, String sdt, String diaChiGiao, int tongTien, int tinhTrang) {
         this.idKhachHang = idKhachHang;
         this.idMatHang = idMatHang;
         this.tenKhachHang = tenKhachHang;

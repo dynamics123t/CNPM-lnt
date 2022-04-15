@@ -6,6 +6,7 @@
 package com.cnpm.services;
 
 import com.cnpm.pojos.LoaiSanPham;
+
 import java.util.List;
 
 /**
@@ -16,4 +17,6 @@ public interface LoaiSanPhamService {
     List<LoaiSanPham> getList();
     boolean add(LoaiSanPham lsp);
     boolean delete(int id);
+
+    LoaiSanPham getOne(int id);
 }

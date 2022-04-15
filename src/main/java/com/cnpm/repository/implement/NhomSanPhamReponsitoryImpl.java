@@ -7,14 +7,15 @@ package com.cnpm.repository.implement;
 
 import com.cnpm.pojos.NhomSanPham;
 import com.cnpm.repository.NhomSanPhamRepository;
-import java.util.List;
-import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.Query;
+import java.util.List;
 
 /**
  *
@@ -49,14 +50,21 @@ public class NhomSanPhamReponsitoryImpl implements NhomSanPhamRepository{
     @Override
     public boolean delete(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        try{
+        try {
             NhomSanPham nsp = session.get(NhomSanPham.class, id);
             session.delete(nsp);
             return true;
-        }catch(HibernateException e){
+        } catch (HibernateException e) {
             System.err.println(e.toString());
             return false;
         }
     }
-    
+
+    @Override
+    public NhomSanPham getNhomSanPham(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(NhomSanPham.class, id);
+    }
+
+
 }

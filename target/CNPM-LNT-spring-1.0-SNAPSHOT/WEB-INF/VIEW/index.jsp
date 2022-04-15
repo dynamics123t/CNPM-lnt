@@ -23,7 +23,7 @@
                                 <li class="category__item">
                                     <a href="" class="category__item--link">Son môi</a>
                                 </li>
-            
+
                             </ul>
                         </nav>
                     </div>
@@ -62,380 +62,50 @@
                         </div>
                         <!-- Phần sản phẩm -->
                         <div class="home__product">
-                            <div class="gird__row">                                
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
+                            <div class="gird__row">
+                                <c:forEach var="product" items="${listHang}">
+                                    <div class="grid__column--2-4">
+                                        <a href="#" class="home__product--items">
+                                            <div class="home__product--items-img">
+                                                <img src="${product.hinhAnh}" alt=""
+                                                     class="home__product--items-images">
+                                                <h4 class="home__product--items-name">${product.tenMH}</h4>
+                                                <div class="home__product--items-price">
+                                                    <span class="home__product--items-price-old">${product.gia}</span>
+                                                    <span class="home__product--items-price-new">${product.gia}</span>
                                                 </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
+                                                <div class="home__product--items-action">
+                                                    <div class="home__product--items-like">   <!--Xử lí lại-->
+                                                        <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
+                                                        <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
+                                                    </div>
+                                                    <div class="home__product--items-rating">
+                                                        <i class="home__product--items-star-yelown fa-solid fa-star"></i>
+                                                        <i class="home__product--items-star-yelown fa-solid fa-star"></i>
+                                                        <i class="home__product--items-star-yelown fa-solid fa-star"></i>
+                                                        <i class="home__product--items-star-yelown fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
+                                                <div class="home__product--items-origin">
+                                                    <span class="home__product--items-brand">Whoo</span>
+                                                    <span class="home__product--items-origin-name">Nhật bản</span>
                                                 </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
+                                                <div class="home__product--items-favourite">
+                                                    <i class="fa-solid fa-check"></i>
+                                                    Yêu thích
+                                                </div>
+                                                <div class="home__product--items-sale-off">
+                                                    <span class="home__product--items-sale-off-percent">10%</span>
+                                                    <span class="home__product--items-sale-off-label">Giảm</span>
                                                 </div>
                                             </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div> 
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>  
-                                <div class="grid__column--2-4">
-                                    <a href="#" class="home__product--items">
-                                        <div class="home__product--items-img">
-                                            <img src="./assets/images/giay1.jfif" alt="" class="home__product--items-images">
-                                            <h4 class="home__product--items-name">Giày thể thao nữ Ulzzang bata đen trắng bò sữa đế bánh mì độn đế vải canvas vintage conver cute</h4>
-                                            <div class="home__product--items-price">
-                                                <span class="home__product--items-price-old">175.000đ</span>
-                                                <span class="home__product--items-price-new">171.000đ</span>
-                                            </div>
-                                            <div class="home__product--items-action">
-                                                <div class="home__product--items-like">   <!--Xử lí lại-->
-                                                    <i class="home__product--items-like-icon-like fa-solid fa-heart"></i>
-                                                    <i class="home__product--items-like-icon-nolike fa-solid fa-heart"></i>
-                                                </div>
-                                                <div class="home__product--items-rating">
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="home__product--items-star-yelown fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                            <div class="home__product--items-origin">
-                                                <span class="home__product--items-brand">Whoo</span>
-                                                <span class="home__product--items-origin-name">Nhật bản</span>
-                                            </div>
-                                            <div class="home__product--items-favourite">
-                                                <i class="fa-solid fa-check"></i>
-                                                Yêu thích
-                                            </div>
-                                            <div class="home__product--items-sale-off">
-                                                <span class="home__product--items-sale-off-percent">10%</span>
-                                                <span class="home__product--items-sale-off-label">Giảm</span>
-                                            </div>
-                                        </div>
-                                    </a>                  
-                                </div>                                                                                                       
+                                        </a>
+                                    </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+</div>

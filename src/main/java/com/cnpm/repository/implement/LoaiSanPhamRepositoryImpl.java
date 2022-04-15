@@ -6,16 +6,16 @@
 package com.cnpm.repository.implement;
 
 import com.cnpm.pojos.LoaiSanPham;
-import com.cnpm.pojos.NhomSanPham;
 import com.cnpm.repository.LoaiSanPhamReponsitory;
-import java.util.List;
-import javax.persistence.Query;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.Query;
+import java.util.List;
 
 /**
  *
@@ -27,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class LoaiSanPhamRepositoryImpl implements LoaiSanPhamReponsitory{
     @Autowired
     private LocalSessionFactoryBean sessionFactory;
+
     @Override
     public List<LoaiSanPham> getList() {
         Session session = this.sessionFactory.getObject().getCurrentSession();
@@ -52,15 +53,20 @@ public class LoaiSanPhamRepositoryImpl implements LoaiSanPhamReponsitory{
     @Override
     public boolean delete(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        try{
+        try {
             LoaiSanPham lsp = session.get(LoaiSanPham.class, id);
             session.save(lsp);
             return true;
-        }
-        catch( HibernateException e){
+        } catch (HibernateException e) {
             System.err.println(e.toString());
             return false;
         }
     }
-    
+
+    @Override
+    public LoaiSanPham getOne(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(LoaiSanPham.class, id);
+    }
+
 }

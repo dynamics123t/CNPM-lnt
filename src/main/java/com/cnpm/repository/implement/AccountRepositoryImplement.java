@@ -46,6 +46,8 @@ public class AccountRepositoryImplement implements AccountRepository{
         return q.getResultList();
     }
 
+
+
     @Override
     public boolean addAccount(Account acc) {
         Session session = this.sessionFactory.getObject().getCurrentSession();

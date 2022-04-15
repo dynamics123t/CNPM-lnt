@@ -30,6 +30,7 @@ com\cnpm\pojos\AccountTmp.class
 com\cnpm\repository\implement\AccountRepositoryImplement.class
 com\cnpm\repository\implement\LoaiSanPhamRepositoryImpl.class
 com\cnpm\validator\AccountValidator.class
+com\cnpm\controller\AdminControler.class
 com\cnpm\services\implement\AccountServiceImplement.class
 com\cnpm\validator\UsernameAccount.class
 com\cnpm\repository\implement\MatHangReponsitoryImpl.class

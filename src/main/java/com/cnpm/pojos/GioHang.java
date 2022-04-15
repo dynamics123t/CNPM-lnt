@@ -6,12 +6,7 @@
 package com.cnpm.pojos;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  *
@@ -24,10 +19,12 @@ public class GioHang implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="IdGioHang")
     private int idGioHang;
-    @Column(name="IdKhach")
-    private int idKhachHang;
-    @Column(name="IDMatHang")
-    private int idMatHang;
+    @JoinColumn (name="IdKhach")
+    @ManyToOne
+    private Account idKhachHang;
+    @JoinColumn(name="IDMatHang")
+    @ManyToOne
+    private MatHang idMatHang;
     @Column(name="SoLuong")
     private int soLuong;
 
@@ -39,20 +36,20 @@ public class GioHang implements Serializable {
         this.idGioHang = idGioHang;
     }
 
-    public int getIdKhachHang() {
-        return idKhachHang;
-    }
-
-    public void setIdKhachHang(int idKhachHang) {
-        this.idKhachHang = idKhachHang;
-    }
-
-    public int getIdMatHang() {
+    public MatHang getIdMatHang() {
         return idMatHang;
     }
 
-    public void setIdMatHang(int idMatHang) {
+    public void setIdMatHang(MatHang idMatHang) {
         this.idMatHang = idMatHang;
+    }
+
+    public Account getIdKhachHang() {
+        return idKhachHang;
+    }
+
+    public void setIdKhachHang(Account idKhachHang) {
+        this.idKhachHang = idKhachHang;
     }
 
     public int getSoLuong() {
@@ -63,7 +60,7 @@ public class GioHang implements Serializable {
         this.soLuong = soLuong;
     }
 
-    public GioHang(int idKhachHang, int idMatHang, int soLuong) {
+    public GioHang(Account idKhachHang, MatHang idMatHang, int soLuong) {
         this.idKhachHang = idKhachHang;
         this.idMatHang = idMatHang;
         this.soLuong = soLuong;

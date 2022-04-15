@@ -6,14 +6,24 @@
 package com.cnpm.services;
 
 import com.cnpm.pojos.MatHang;
+
 import java.util.List;
 
 /**
- *
  * @author ADMIN
  */
 public interface MatHangService {
     boolean add(MatHang mh);
+
     boolean delete(int id);
-    List<MatHang> getList(String kw);
+
+    MatHang getOne(int id);
+
+    List<MatHang> getList(String kw, int page);
+
+    List<MatHang> getList(int count, int page);
+
+    List<MatHang> getList(int count, int page, String kw);
+
+    boolean updateProduct(MatHang matHang);
 }

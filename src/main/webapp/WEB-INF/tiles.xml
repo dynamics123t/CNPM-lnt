@@ -20,6 +20,15 @@ and open the template in the editor.
         <put-attribute name="title" value="trang chủ"/>
         <put-attribute name="content" value="/WEB-INF/VIEW/index.jsp"/>
     </definition>
+    <definition name="baseAdmin" template="/WEB-INF/layout/baseAdmin.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/layout/headerAdmin.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/layout/footerAdmin.jsp"/>
+        <put-attribute name="content" value=""/>
+    </definition>
+    <definition name="pageAdmin" extends="baseAdmin">
+
+    </definition>
 <!--    <definition name="login" extends="baseLayout">
         <put-attribute name="title" value="Dang Nhap"/>
         <put-attribute name="content" value="/WEB-INF/VIEW/login.jsp"/>

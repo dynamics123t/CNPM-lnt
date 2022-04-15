@@ -8,13 +8,16 @@ package com.cnpm.services.implement;
 import com.cnpm.pojos.NhomSanPham;
 import com.cnpm.repository.NhomSanPhamRepository;
 import com.cnpm.services.NhomSanPhamService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
  * @author ADMIN
  */
+@Service
 public class NhomSanPhamServiceImpl implements NhomSanPhamService{
     
     @Autowired
@@ -34,5 +37,10 @@ public class NhomSanPhamServiceImpl implements NhomSanPhamService{
     public boolean delete(int id) {
         return this.nhomSanPhamReponsitory.delete(id);
     }
-    
+
+    @Override
+    public NhomSanPham getNhomSanPham(int id) {
+        return this.nhomSanPhamReponsitory.getNhomSanPham(id);
+    }
+
 }

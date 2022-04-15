@@ -9,6 +9,7 @@
 package com.cnpm.services;
 
 import com.cnpm.pojos.NhomSanPham;
+
 import java.util.List;
 
 
@@ -22,4 +23,6 @@ public interface NhomSanPhamService {
     boolean add(NhomSanPham NSP);
     List<NhomSanPham> getNSP();
     boolean delete(int id);
+
+    NhomSanPham getNhomSanPham(int id);
 }

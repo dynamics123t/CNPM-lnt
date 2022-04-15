@@ -8,9 +8,10 @@ package com.cnpm.services.implement;
 import com.cnpm.pojos.MatHang;
 import com.cnpm.repository.MatHangReponsitory;
 import com.cnpm.services.MatHangService;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  *
@@ -31,8 +32,28 @@ public class MatHangServiceImpl implements MatHangService{
     }
 
     @Override
-    public List<MatHang> getList(String kw) {
-        return this.matHangRepository.getList(kw);
+    public MatHang getOne(int id) {
+        return this.matHangRepository.getOne(id);
     }
-    
+
+    @Override
+    public List<MatHang> getList(String kw, int page) {
+        return this.matHangRepository.getList(kw, page);
+    }
+
+    @Override
+    public List<MatHang> getList(int count, int page) {
+        return this.matHangRepository.getList(count,page);
+    }
+
+    @Override
+    public List<MatHang> getList(int count, int page, String kw) {
+        return this.matHangRepository.getList(count, page, kw);
+    }
+
+    @Override
+    public boolean updateProduct(MatHang matHang) {
+        return this.matHangRepository.updateProduct(matHang);
+    }
+
 }

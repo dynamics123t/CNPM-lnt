@@ -389,7 +389,6 @@
     border: none;
     outline: none;
     font-size: 1.4rem;
-    color: var(--white_color);
     padding: 0 12px;
     border-radius: 3px;
 }
