@@ -23,7 +23,7 @@ public class GioHang implements Serializable {
     @ManyToOne
     private Account idKhachHang;
     @JoinColumn(name="IDMatHang")
-    @ManyToOne
+    @ManyToOne(fetch =FetchType.EAGER)
     private MatHang idMatHang;
     @Column(name="SoLuong")
     private int soLuong;

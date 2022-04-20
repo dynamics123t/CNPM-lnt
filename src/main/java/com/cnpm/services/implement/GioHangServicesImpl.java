@@ -27,7 +27,22 @@ public class GioHangServicesImpl implements GioHangServices {
     }
 
     @Override
-    public List<GioHang> get(String idKhach) {
-        return this.gioHangRepository.get(idKhach);
+    public List<GioHang> get() {
+        return this.gioHangRepository.get();
+    }
+
+    @Override
+    public int count() {
+        return this.gioHangRepository.count();
+    }
+
+    @Override
+    public boolean addCountCart(int id) {
+        return this.gioHangRepository.addCountCart(id);
+    }
+
+    @Override
+    public boolean truCountCart(int id) {
+        return this.gioHangRepository.truCountCart(id);
     }
 }

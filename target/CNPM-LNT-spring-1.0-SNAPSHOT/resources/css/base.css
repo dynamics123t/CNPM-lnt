@@ -40,8 +40,8 @@ html{
     width: 16.6667%;
 }
 .grid__column--2-4{
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 2px;
+    padding-right: 2px;
     width: 19.7%;
     display: inline-block;
 }
@@ -49,6 +49,16 @@ html{
     padding-left: 5px;
     padding-right: 5px;
     width: 83.3334%;
+}
+.grid__column-2-15 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 70%;
+}
+.grid__column-2-16 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 30%;
 }
 @keyframes fadeIn{
     from{

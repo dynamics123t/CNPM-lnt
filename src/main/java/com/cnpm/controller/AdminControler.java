@@ -103,16 +103,5 @@ public class AdminControler {
         return "pageAdmin";
     }
 
-    @GetMapping("/user")
-    public ResponseEntity<String> user(){
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal(); //lấy thông tin người dùng
-        String username;
-        if (principal instanceof UserDetails) {
-             username = ((UserDetails)principal).getUsername();
-        } else {
-             username = principal.toString();
-        }
-        ResponseEntity<String> stringRequestEntity = new ResponseEntity<>(username, HttpStatus.OK);
-        return stringRequestEntity;
-    }
+
 }

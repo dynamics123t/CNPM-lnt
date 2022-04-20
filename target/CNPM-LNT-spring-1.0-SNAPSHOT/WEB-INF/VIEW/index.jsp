@@ -8,31 +8,87 @@
 <%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <div class="container">
-            <div class="grid">
-                <div class="grid__row app__content">
-                    <div class="grid__column--2">
-                        <nav class="category">
-                            <h3 class="category__heading"><i class="category__heading--icon fa-solid fa-list"></i>Danh mục</h3>
-                            <ul class="category__list">
-                                <li class="category__item category__item--active">
-                                    <a href="" class="category__item--link">Sản phẩm</a>
-                                </li>
-                                <li class="category__item">
-                                    <a href="" class="category__item--link">Giày - dép</a>
-                                </li>
-                                <li class="category__item">
-                                    <a href="" class="category__item--link">Son môi</a>
-                                </li>
+    <div class="container__body">
+        <div class="slideshow-container">
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/1.jpg"/>">
+                <div class="text">Nội dung caption của slide đầu tiên!</div>
+            </div>
 
-                            </ul>
-                        </nav>
-                    </div>
-                    <div class="grid__column--10">
-                        <div class="home__fillter">
-                            <span class="home__fillter--item">Sắp xếp theo</span>
-                            <button class="home__fillter--btn btn">Phổ biến</button>
-                            <button class="home__fillter--btn btn btn__primary">Mới nhất</button>
-                            <button class="home__fillter--btn btn">Bán chạy</button>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/2.png"/>">
+                <div class="text">Nội dung caption của slide thứ 2!</div>
+            </div>
+
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/3.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/4.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/5.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/6.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/7.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/8.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+            <div class="mySlides fade align">
+                <img src="<c:url value="/images/9.png"/>">
+                <div class="text">Nội dung caption của slide thứ 3!</div>
+            </div>
+        </div>
+        <br>
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid__row app__content">
+            <div class="grid__column--2">
+                <nav class="category">
+                    <h3 class="category__heading"><i class="category__heading--icon fa-solid fa-list"></i>Danh mục</h3>
+                    <ul class="category__list">
+                        <li class="category__item category__item--active">
+                            <a href="" class="category__item--link">Sản phẩm</a>
+                        </li>
+                        <c:forEach begin="1" end="3">
+                            <li class="category__item">
+                                <a href="" class="category__item--link">Giày - dép</a>
+                            </li>
+                            <li class="category__item">
+                                <a href="" class="category__item--link">Son môi</a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </nav>
+            </div>
+            <div class="grid__column--10">
+                <div class="home__fillter">
+                    <span class="home__fillter--item">Sắp xếp theo</span>
+                    <button class="home__fillter--btn btn">Phổ biến</button>
+                    <button class="home__fillter--btn btn btn__primary">Mới nhất</button>
+                    <button class="home__fillter--btn btn">Bán chạy</button>
 
                             <div class="select__input">
                                 <span class="select__input--label">Giá</span>
@@ -65,7 +121,7 @@
                             <div class="gird__row">
                                 <c:forEach var="product" items="${listHang}">
                                     <div class="grid__column--2-4">
-                                        <a href="#" class="home__product--items">
+                                        <a href="<c:url value="/chitiet/${product.idMatHang}"/> " class="home__product--items">
                                             <div class="home__product--items-img">
                                                 <img src="${product.hinhAnh}" alt=""
                                                      class="home__product--items-images">

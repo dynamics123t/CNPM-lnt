@@ -9,7 +9,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand" href="index.html">Admin</a>
+        <c:url value="/admin/" var="link"/>
+        <a class="navbar-brand" href="${link}">Admin</a>
     </div>
 
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -20,7 +21,8 @@
     </button>
 
     <ul class="nav navbar-nav navbar-left navbar-top-links">
-        <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
+        <c:url var="linkwebsite" value="/"/>
+        <li><a href="${linkwebsite}"><i class="fa fa-home fa-fw"></i> Website</a></li>
     </ul>
 
     <ul class="nav navbar-right navbar-top-links">

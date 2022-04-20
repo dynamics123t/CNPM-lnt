@@ -44,7 +44,7 @@ public class HibernateConfig {
         d.setDriverClassName(env.getProperty("hibernate.connection.driverClass"));
         d.setUrl(env.getProperty("hibernate.connection.url"));
         d.setUsername(env.getProperty("hibernate.connection.username"));
-        d.setPassword("");
+        d.setPassword(env.getProperty("hibernate.connection.password"));
         
         return d;
     }
