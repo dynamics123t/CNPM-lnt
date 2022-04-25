@@ -114,19 +114,26 @@
                 <li>
                     <a href="<c:url value="/admin"/> " class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                 </li>
+<!--                <li>
+                    <a href="<c:url value="/admin/accout"/> "><i class="fa fa-user fa-fw"></i> Tài khoản</a>
+                </li>-->
                 <li>
-                    <a href="<c:url value="/admin/accout"/> "><i class="fa fa-table fa-fw"></i>Tài khoản</a>
+                    <a href="<c:url value="/admin/matHang/add"/> "><i class="fa fa-table fa-fw"></i> Sản phẩm</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/admin/product"/> "><i class="fa fa-table fa-fw"></i>Sản phẩm</a>
+                    <a href="<c:url value="/admin/accout"/> "><i class="fa fa-user fa-fw"></i> Danh sách tài khoản</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/admin/accout"/> "><i class="fa fa-edit fa-fw"></i>Danh sách tài khoản</a>
+                    <a href="<c:url value="/admin/product"/> "><i class="fa fa-table fa-fw"></i> Danh sách sản phẩm</a>
                 </li>
                 <li>
-                    <a href="<c:url value="/admin/product"/> "><i class="fa fa-table fa-fw"></i>Danh sách sản phẩm</a>
+                    <a href="<c:url value="/admin/nhomSanPham/add"/> "><i class="fa fa-plus fa-fw"></i> Thêm nhóm sản phẩm</a>
+                </li>
+                <li>
+                    <a href="<c:url value="/admin/loaiSanPham/add"/> "><i class="fa fa-plus fa-fw"></i> Thêm loại sản phẩm</a>
                 </li>
             </ul>
         </div>
-    </div>
+                
+    </div> 
 </nav>

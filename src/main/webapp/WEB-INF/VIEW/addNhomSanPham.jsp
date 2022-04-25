@@ -12,20 +12,29 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link rel="stylesheet" href="<c:url value="/css/form.css"/>"/>
     </head>
     <body>
+    <div class="container">
         <c:url var="action" value="/admin/nhomSanPham/add"/>
         <form:form action="${action}" modelAttribute="nsp" method="post">
-            <form:input path="tenNhomSP" id = "name"/>
-            <input type="submit" value='thêm' onclick="check()"/>
+            <div class="row">
+                <div class="col">
+                    <h3 class="title">Thêm mới nhóm sản phẩm</h3>
+                    <div class="inputBox">
+                        <span>Tên nhóm sản phẩm :</span>
+                        <form:input path="tenNhomSP" id="name" placeholder="Nhập nhóm sản phẩm"/>
+                    </div>
+                    <input type="submit" value="Thêm" class="submit-btn" onclick="check()"/>
+                <div>
+            </div>
         </form:form>
     </body>
-    <script>
-        function check(){
-            var name = document.getElementById("name");
-            alert("name: "+ name.value);
-            
-        }
-    </script>
-        
+        <script>
+                    function check() {
+                        var name = document.getElementById("name");
+                        alert("name: " + name.value);
+
+                    }
+        </script>
 </html>
